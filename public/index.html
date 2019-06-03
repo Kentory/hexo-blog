@@ -80,12 +80,12 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Hank">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Hank">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Hank">
 
 
 
@@ -121,7 +121,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>Hank</title>
   
 
 
@@ -152,12 +152,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Hank</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">兴趣使然的无名博客</p>
       
   </div>
 
@@ -229,16 +229,206 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/深入浅出Vue(1)/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Mysql日期函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Hank">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Hank">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/31/Mysql日期函数/" itemprop="url">Mysql日期函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-31T21:30:10+08:00">
+                2019-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="Mysql日期和时间类型"><a href="#Mysql日期和时间类型" class="headerlink" title="Mysql日期和时间类型"></a>Mysql日期和时间类型</h3><p>表示时间值的日期和时间类型为YEAR、DATE、TIME、DATETIME和TIMESTAMP。</p>
+<p>每个时间类型有一个有效值范围和一个”零”值，当指定MySQL不能表示的值时使用”零”值。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">占用空间</th>
+<th style="text-align:center">范围</th>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">“零”值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">YEAR</td>
+<td style="text-align:center">1字节</td>
+<td style="text-align:center">1901/2155</td>
+<td style="text-align:center">YYYY</td>
+<td style="text-align:center">0000</td>
+</tr>
+<tr>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">3字节</td>
+<td style="text-align:center">1000-01-01/9999-12-31</td>
+<td style="text-align:center">YYYY-MM-DD</td>
+<td style="text-align:center">‘0000-00-00’</td>
+</tr>
+<tr>
+<td style="text-align:center">TIME</td>
+<td style="text-align:center">3字节</td>
+<td style="text-align:center">-838:59:59 ~ 838:59:59</td>
+<td style="text-align:center">HH:MM:SS</td>
+<td style="text-align:center">‘00:00:00’</td>
+</tr>
+<tr>
+<td style="text-align:center">DATETIME</td>
+<td style="text-align:center">8字节</td>
+<td style="text-align:center">1000-01-01 00:00:00 ~ 9999-12-31 23:59:59</td>
+<td style="text-align:center">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:center">‘0000-00-00 00:00:00’</td>
+</tr>
+<tr>
+<td style="text-align:center">TIMESTAMP</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">1970-01-01 00:00:01 UTC ~ 2038-01-19 03:14:07  UTC</td>
+<td style="text-align:center">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:center">‘0000-00-00 00:00:00’</td>
+</tr>
+</tbody>
+</table>
+<p>mysql5.7之后版本的sql_mode默认使用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql-mode=<span class="string">"STRICT_ALL_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER"</span></span><br></pre></td></tr></table></figure></p>
+<p>其中NO_ZERO_IN_DATE, NO_ZERO_DATE两个选项禁止了日期和时间的”零”值。</p>
+<p>也可以手动调整MySQL的sql_mode变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> @@global.sql_mode=<span class="string">'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION'</span>;</span><br><span class="line"><span class="built_in">set</span> @@session.sql_mode=<span class="string">'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION'</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Mysql获取日期时间的函数"><a href="#Mysql获取日期时间的函数" class="headerlink" title="Mysql获取日期时间的函数"></a>Mysql获取日期时间的函数</h3><h4 id="日期时间getter"><a href="#日期时间getter" class="headerlink" title="日期时间getter"></a>日期时间getter</h4><p><img src="/2019/05/31/Mysql日期函数/get_date_time.png" alt="get"></p>
+<h4 id="日期时间compare"><a href="#日期时间compare" class="headerlink" title="日期时间compare"></a>日期时间compare</h4><ol>
+<li>日期差函数：datediff<br>DATEDIFF(date1,date2)，计算两个日期相差天数（date1-date2），参数类型可以是DATE、DATETIME和TIMESTAMP。<br><img src="/2019/05/31/Mysql日期函数/datediff.png" alt="datediff"></li>
+<li>时间差函数：timediff<br>TIMEDIFF(time1,time2)，两个时间相减得到的差值（time1-time2），参数类型可以是DATE、TIME、DATETIME和TIMESTAMP,但time1和time2必须参数类型相同；两个date计算得到00:00:00。<br><img src="/2019/05/31/Mysql日期函数/timediff.png" alt="timediff"></li>
+<li>时间差函数：timestampdiff<br>TIMESTAMPDIFF(interval, datetime1,datetime2)，返回（datetime2-datetime1）的时间差，结果单位由interval参数给出，参数类型可以是DATE、DATETIME和TIMESTAMP。interval可选择：<ul>
+<li>frac_second 毫秒（MySQL5.6后支持）</li>
+<li>second 秒</li>
+<li>minute 分钟</li>
+<li>hour 小时</li>
+<li>day 天</li>
+<li>week 周</li>
+<li>month 月</li>
+<li>quarter 季度</li>
+<li>year 年<br><img src="/2019/05/31/Mysql日期函数/timestampdiff.png" alt="timestampdiff"></li>
+</ul>
+</li>
+<li></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/深入浅出Vue(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Hank">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hank">
     </span>
 
     
@@ -318,14 +508,13 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">watcher(cat, <span class="string">'nickname'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> car.weight &gt; <span class="number">5</span> ? <span class="string">'橘猪'</span> : <span class="string">'橘猫'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>我们定义了一个watcher作为“监听器”，它监听了cat的nickname属性。这个属性的值取决于cat.weight，即当cat.weight发生变化时，cat.nickname也应该发生变化，前者是后者的依赖。我们可以把cat.nickname称为“计算属性”。</p>
 <p>那么，我们应该怎样才能正确构造这个监听器呢？可以看到，在设想当中，监听器接收三个参数，分别是被监听的对象、被监听的属性以及回调函数，回调函数返回一个该被监听属性的值。</p>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 当计算属性的值被更新时调用</span></span><br><span class="line"><span class="comment"> * @param &#123; Any &#125; val 计算属性的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onComputedUpdate</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`我的昵称是：<span class="subst">$&#123;val&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 观测者</span></span><br><span class="line"><span class="comment"> * @param &#123; Object &#125; obj 被观测对象</span></span><br><span class="line"><span class="comment"> * @param &#123; String &#125; key 被观测对象的key</span></span><br><span class="line"><span class="comment"> * @param &#123; Function &#125; cb 回调函数，返回“计算属性”的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">watcher</span> (<span class="params">obj, key, cb</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">      <span class="keyword">const</span> val = cb()</span><br><span class="line">      onComputedUpdate(val)</span><br><span class="line">      <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> () &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(<span class="string">'计算属性无法被赋值！'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 当计算属性的值被更新时调用</span></span><br><span class="line"><span class="comment"> * @param &#123; Any &#125; val 计算属性的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onComputedUpdate</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`我的昵称是：<span class="subst">$&#123;val&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 观测者</span></span><br><span class="line"><span class="comment"> * @param &#123; Object &#125; obj 被观测对象</span></span><br><span class="line"><span class="comment"> * @param &#123; String &#125; key 被观测对象的key</span></span><br><span class="line"><span class="comment"> * @param &#123; Function &#125; cb 回调函数，返回“计算属性”的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">watcher</span> (<span class="params">obj, key, cb</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">      <span class="keyword">const</span> val = cb()</span><br><span class="line">      onComputedUpdate(val)</span><br><span class="line">      <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> () &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(<span class="string">'计算属性无法被赋值！'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="依赖收集"><a href="#依赖收集" class="headerlink" title="依赖收集"></a>依赖收集</h3><p>我们知道，当一个可观测对象的属性被读写时，会触发它的getter/setter方法。换个思路，如果我们可以在可观测对象的getter/setter里面，去执行监听器里面的onComputedUpdate()方法，是不是就能够实现让对象主动发出通知的功能呢？</p>
 <p>由于监听器内的onComputedUpdate()方法需要接收回调函数的值作为参数，而可观测对象内并没有这个回调函数，所以我们需要借助一个第三方来帮助我们把监听器和可观测对象连接起来。</p>
 <p>这个第三方就做一件事情——收集监听器内的回调函数的值以及onComputedUpdate()方法。</p>
 <p>现在我们把这个第三方命名为“依赖收集器”：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Dep = &#123;</span><br><span class="line">  target: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>依赖收集器的target就是用来存放监听器里面的onComputedUpdate()方法的。</p>
-<p>定义完依赖收集器，我们回到监听器里，看看应该在什么地方把onComputedUpdate()方法赋值给Dep.target：</p>
+<p>依赖收集器的target就是用来存放监听器里面的onComputedUpdate()方法的。<br>定义完依赖收集器，我们回到监听器里，看看应该在什么地方把onComputedUpdate()方法赋值给Dep.target：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">watcher</span> (<span class="params">obj, key, cb</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 定义一个被动触发函数，当这个“被观测对象”的依赖更新时调用</span></span><br><span class="line">  <span class="keyword">const</span> onDepUpdated = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> val = cb()</span><br><span class="line">    onComputedUpdate(val)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">      Dep.target = onDepUpdated</span><br><span class="line">      <span class="comment">// 执行cb()的过程中会用到Dep.target，</span></span><br><span class="line">      <span class="comment">// 当cb()执行完了就重置Dep.target为null</span></span><br><span class="line">      <span class="keyword">const</span> val = cb()</span><br><span class="line">      Dep.target = <span class="literal">null</span></span><br><span class="line">      <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> () &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(<span class="string">'计算属性无法被赋值！'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们在监听器内部定义了一个新的onDepUpdated()方法，这个方法很简单，就是把监听器回调函数的值以及onComputedUpdate()给打包到一块，然后赋值给Dep.target。这一步非常关键，通过这样的操作，依赖收集器就获得了监听器的回调值以及onComputedUpdate()方法。作为全局变量，Dep.target理所当然的能够被可观测对象的getter/setter所使用。</p>
 <p>重新看一下我们的watcher实例：</p>
@@ -389,13 +578,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Hank">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Hank">
     </span>
 
     
@@ -536,7 +725,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-author-name" itemprop="name">Hank</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -547,7 +736,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -560,7 +749,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -601,7 +790,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Hank</span>
 
   
 </div>

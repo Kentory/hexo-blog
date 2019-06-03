@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="SQL MYSQL,">
 
 
 
@@ -79,17 +79,23 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="Mysql日期和时间类型表示时间值的日期和时间类型为YEAR、DATE、TIME、DATETIME和TIMESTAMP。 每个时间类型有一个有效值范围和一个”零”值，当指定MySQL不能表示的值时使用”零”值。    类型 占用空间 范围 格式 “零”值     YEAR 1字节 1901/2155 YYYY 0000   DATE 3字节 1000-01-01/9999-12-31 YYYY-M">
+<meta name="keywords" content="SQL MYSQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/05/17/hello-world/index.html">
+<meta property="og:title" content="Mysql日期函数">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/Mysql日期函数/index.html">
 <meta property="og:site_name" content="Hank">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Mysql日期和时间类型表示时间值的日期和时间类型为YEAR、DATE、TIME、DATETIME和TIMESTAMP。 每个时间类型有一个有效值范围和一个”零”值，当指定MySQL不能表示的值时使用”零”值。    类型 占用空间 范围 格式 “零”值     YEAR 1字节 1901/2155 YYYY 0000   DATE 3字节 1000-01-01/9999-12-31 YYYY-M">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-17T11:19:00.563Z">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/Mysql日期函数/get_date_time.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/Mysql日期函数/datediff.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/Mysql日期函数/timediff.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/Mysql日期函数/timestampdiff.png">
+<meta property="og:updated_time" content="2019-05-31T09:49:09.499Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Mysql日期函数">
+<meta name="twitter:description" content="Mysql日期和时间类型表示时间值的日期和时间类型为YEAR、DATE、TIME、DATETIME和TIMESTAMP。 每个时间类型有一个有效值范围和一个”零”值，当指定MySQL不能表示的值时使用”零”值。    类型 占用空间 范围 格式 “零”值     YEAR 1字节 1901/2155 YYYY 0000   DATE 3字节 1000-01-01/9999-12-31 YYYY-M">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/31/Mysql日期函数/get_date_time.png">
 
 
 
@@ -119,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/17/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/31/Mysql日期函数/">
 
 
 
 
 
-  <title>Hello World | Hank</title>
+  <title>Mysql日期函数 | Hank</title>
   
 
 
@@ -232,7 +238,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Mysql日期函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hank">
@@ -249,7 +255,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">Mysql日期函数</h1>
         
 
         <div class="post-meta">
@@ -261,8 +267,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-17T19:19:00+08:00">
-                2019-05-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-31T21:30:10+08:00">
+                2019-05-31
               </time>
             
 
@@ -299,15 +305,77 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h3 id="Mysql日期和时间类型"><a href="#Mysql日期和时间类型" class="headerlink" title="Mysql日期和时间类型"></a>Mysql日期和时间类型</h3><p>表示时间值的日期和时间类型为YEAR、DATE、TIME、DATETIME和TIMESTAMP。</p>
+<p>每个时间类型有一个有效值范围和一个”零”值，当指定MySQL不能表示的值时使用”零”值。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">占用空间</th>
+<th style="text-align:center">范围</th>
+<th style="text-align:center">格式</th>
+<th style="text-align:center">“零”值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">YEAR</td>
+<td style="text-align:center">1字节</td>
+<td style="text-align:center">1901/2155</td>
+<td style="text-align:center">YYYY</td>
+<td style="text-align:center">0000</td>
+</tr>
+<tr>
+<td style="text-align:center">DATE</td>
+<td style="text-align:center">3字节</td>
+<td style="text-align:center">1000-01-01/9999-12-31</td>
+<td style="text-align:center">YYYY-MM-DD</td>
+<td style="text-align:center">‘0000-00-00’</td>
+</tr>
+<tr>
+<td style="text-align:center">TIME</td>
+<td style="text-align:center">3字节</td>
+<td style="text-align:center">-838:59:59 ~ 838:59:59</td>
+<td style="text-align:center">HH:MM:SS</td>
+<td style="text-align:center">‘00:00:00’</td>
+</tr>
+<tr>
+<td style="text-align:center">DATETIME</td>
+<td style="text-align:center">8字节</td>
+<td style="text-align:center">1000-01-01 00:00:00 ~ 9999-12-31 23:59:59</td>
+<td style="text-align:center">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:center">‘0000-00-00 00:00:00’</td>
+</tr>
+<tr>
+<td style="text-align:center">TIMESTAMP</td>
+<td style="text-align:center">4字节</td>
+<td style="text-align:center">1970-01-01 00:00:01 UTC ~ 2038-01-19 03:14:07  UTC</td>
+<td style="text-align:center">YYYY-MM-DD HH:MM:SS</td>
+<td style="text-align:center">‘0000-00-00 00:00:00’</td>
+</tr>
+</tbody>
+</table>
+<p>mysql5.7之后版本的sql_mode默认使用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql-mode=<span class="string">"STRICT_ALL_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER"</span></span><br></pre></td></tr></table></figure></p>
+<p>其中NO_ZERO_IN_DATE, NO_ZERO_DATE两个选项禁止了日期和时间的”零”值。</p>
+<p>也可以手动调整MySQL的sql_mode变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> @@global.sql_mode=<span class="string">'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION'</span>;</span><br><span class="line"><span class="built_in">set</span> @@session.sql_mode=<span class="string">'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION'</span>;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Mysql获取日期时间的函数"><a href="#Mysql获取日期时间的函数" class="headerlink" title="Mysql获取日期时间的函数"></a>Mysql获取日期时间的函数</h3><h4 id="日期时间getter"><a href="#日期时间getter" class="headerlink" title="日期时间getter"></a>日期时间getter</h4><p><img src="/2019/05/31/Mysql日期函数/get_date_time.png" alt="get"></p>
+<h4 id="日期时间compare"><a href="#日期时间compare" class="headerlink" title="日期时间compare"></a>日期时间compare</h4><ol>
+<li>日期差函数：datediff<br>DATEDIFF(date1,date2)，计算两个日期相差天数（date1-date2），参数类型可以是DATE、DATETIME和TIMESTAMP。<br><img src="/2019/05/31/Mysql日期函数/datediff.png" alt="datediff"></li>
+<li>时间差函数：timediff<br>TIMEDIFF(time1,time2)，两个时间相减得到的差值（time1-time2），参数类型可以是DATE、TIME、DATETIME和TIMESTAMP,但time1和time2必须参数类型相同；两个date计算得到00:00:00。<br><img src="/2019/05/31/Mysql日期函数/timediff.png" alt="timediff"></li>
+<li>时间差函数：timestampdiff<br>TIMESTAMPDIFF(interval, datetime1,datetime2)，返回（datetime2-datetime1）的时间差，结果单位由interval参数给出，参数类型可以是DATE、DATETIME和TIMESTAMP。interval可选择：<ul>
+<li>frac_second 毫秒（MySQL5.6后支持）</li>
+<li>second 秒</li>
+<li>minute 分钟</li>
+<li>hour 小时</li>
+<li>day 天</li>
+<li>week 周</li>
+<li>month 月</li>
+<li>quarter 季度</li>
+<li>year 年<br><img src="/2019/05/31/Mysql日期函数/timestampdiff.png" alt="timestampdiff"></li>
+</ul>
+</li>
+<li></li>
+</ol>
 
       
     </div>
@@ -323,6 +391,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/SQL-MYSQL/" rel="tag"># SQL MYSQL</a>
+          
+        </div>
+      
 
       
       
@@ -332,15 +406,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/19/深入浅出Vue(1)/" rel="next" title="深入浅出Vue(1)">
+                <i class="fa fa-chevron-left"></i> 深入浅出Vue(1)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/19/深入浅出Vue(1)/" rel="prev" title="深入浅出Vue(1)">
-                深入浅出Vue(1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -463,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql日期和时间类型"><span class="nav-number">1.</span> <span class="nav-text">Mysql日期和时间类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mysql获取日期时间的函数"><span class="nav-number">2.</span> <span class="nav-text">Mysql获取日期时间的函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#日期时间getter"><span class="nav-number">2.1.</span> <span class="nav-text">日期时间getter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#日期时间compare"><span class="nav-number">2.2.</span> <span class="nav-text">日期时间compare</span></a></li></ol></li></ol></div>
             
 
           </div>

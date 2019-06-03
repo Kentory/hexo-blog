@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="深入浅出Vue(1)">
 <meta property="og:url" content="http://yoursite.com/2019/05/19/深入浅出Vue(1)/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Hank">
 <meta property="og:description" content="深入响应式原理Vue.js响应式原理 当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter。这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在属性被访问和修改时通知变更。  以上是Vue中为">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-19T15:01:03.496Z">
+<meta property="og:updated_time" content="2019-05-31T08:13:40.395Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入浅出Vue(1)">
 <meta name="twitter:description" content="深入响应式原理Vue.js响应式原理 当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty 把这些属性全部转为 getter/setter。这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在属性被访问和修改时通知变更。  以上是Vue中为">
@@ -126,7 +126,7 @@
 
 
 
-  <title>深入浅出Vue(1) | Hexo</title>
+  <title>深入浅出Vue(1) | Hank</title>
   
 
 
@@ -156,12 +156,12 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Hank</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">兴趣使然的无名博客</p>
       
   </div>
 
@@ -236,13 +236,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/19/深入浅出Vue(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Hank">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Hank">
     </span>
 
     
@@ -318,14 +318,13 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">watcher(cat, <span class="string">'nickname'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> car.weight &gt; <span class="number">5</span> ? <span class="string">'橘猪'</span> : <span class="string">'橘猫'</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>我们定义了一个watcher作为“监听器”，它监听了cat的nickname属性。这个属性的值取决于cat.weight，即当cat.weight发生变化时，cat.nickname也应该发生变化，前者是后者的依赖。我们可以把cat.nickname称为“计算属性”。</p>
 <p>那么，我们应该怎样才能正确构造这个监听器呢？可以看到，在设想当中，监听器接收三个参数，分别是被监听的对象、被监听的属性以及回调函数，回调函数返回一个该被监听属性的值。</p>
- <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 当计算属性的值被更新时调用</span></span><br><span class="line"><span class="comment"> * @param &#123; Any &#125; val 计算属性的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onComputedUpdate</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`我的昵称是：<span class="subst">$&#123;val&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 观测者</span></span><br><span class="line"><span class="comment"> * @param &#123; Object &#125; obj 被观测对象</span></span><br><span class="line"><span class="comment"> * @param &#123; String &#125; key 被观测对象的key</span></span><br><span class="line"><span class="comment"> * @param &#123; Function &#125; cb 回调函数，返回“计算属性”的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">watcher</span> (<span class="params">obj, key, cb</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">      <span class="keyword">const</span> val = cb()</span><br><span class="line">      onComputedUpdate(val)</span><br><span class="line">      <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> () &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(<span class="string">'计算属性无法被赋值！'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 当计算属性的值被更新时调用</span></span><br><span class="line"><span class="comment"> * @param &#123; Any &#125; val 计算属性的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">onComputedUpdate</span> (<span class="params">val</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`我的昵称是：<span class="subst">$&#123;val&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 观测者</span></span><br><span class="line"><span class="comment"> * @param &#123; Object &#125; obj 被观测对象</span></span><br><span class="line"><span class="comment"> * @param &#123; String &#125; key 被观测对象的key</span></span><br><span class="line"><span class="comment"> * @param &#123; Function &#125; cb 回调函数，返回“计算属性”的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">watcher</span> (<span class="params">obj, key, cb</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">      <span class="keyword">const</span> val = cb()</span><br><span class="line">      onComputedUpdate(val)</span><br><span class="line">      <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> () &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(<span class="string">'计算属性无法被赋值！'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="依赖收集"><a href="#依赖收集" class="headerlink" title="依赖收集"></a>依赖收集</h3><p>我们知道，当一个可观测对象的属性被读写时，会触发它的getter/setter方法。换个思路，如果我们可以在可观测对象的getter/setter里面，去执行监听器里面的onComputedUpdate()方法，是不是就能够实现让对象主动发出通知的功能呢？</p>
 <p>由于监听器内的onComputedUpdate()方法需要接收回调函数的值作为参数，而可观测对象内并没有这个回调函数，所以我们需要借助一个第三方来帮助我们把监听器和可观测对象连接起来。</p>
 <p>这个第三方就做一件事情——收集监听器内的回调函数的值以及onComputedUpdate()方法。</p>
 <p>现在我们把这个第三方命名为“依赖收集器”：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Dep = &#123;</span><br><span class="line">  target: <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>依赖收集器的target就是用来存放监听器里面的onComputedUpdate()方法的。</p>
-<p>定义完依赖收集器，我们回到监听器里，看看应该在什么地方把onComputedUpdate()方法赋值给Dep.target：</p>
+<p>依赖收集器的target就是用来存放监听器里面的onComputedUpdate()方法的。<br>定义完依赖收集器，我们回到监听器里，看看应该在什么地方把onComputedUpdate()方法赋值给Dep.target：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">watcher</span> (<span class="params">obj, key, cb</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 定义一个被动触发函数，当这个“被观测对象”的依赖更新时调用</span></span><br><span class="line">  <span class="keyword">const</span> onDepUpdated = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> val = cb()</span><br><span class="line">    onComputedUpdate(val)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj, key, &#123;</span><br><span class="line">    <span class="keyword">get</span> () &#123;</span><br><span class="line">      Dep.target = onDepUpdated</span><br><span class="line">      <span class="comment">// 执行cb()的过程中会用到Dep.target，</span></span><br><span class="line">      <span class="comment">// 当cb()执行完了就重置Dep.target为null</span></span><br><span class="line">      <span class="keyword">const</span> val = cb()</span><br><span class="line">      Dep.target = <span class="literal">null</span></span><br><span class="line">      <span class="keyword">return</span> val</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="keyword">set</span> () &#123;</span><br><span class="line">      <span class="built_in">console</span>.error(<span class="string">'计算属性无法被赋值！'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们在监听器内部定义了一个新的onDepUpdated()方法，这个方法很简单，就是把监听器回调函数的值以及onComputedUpdate()给打包到一块，然后赋值给Dep.target。这一步非常关键，通过这样的操作，依赖收集器就获得了监听器的回调值以及onComputedUpdate()方法。作为全局变量，Dep.target理所当然的能够被可观测对象的getter/setter所使用。</p>
 <p>重新看一下我们的watcher实例：</p>
@@ -377,6 +376,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/31/Mysql日期函数/" rel="prev" title="Mysql日期函数">
+                Mysql日期函数 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -442,7 +445,7 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-author-name" itemprop="name">Hank</p>
               <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
@@ -453,7 +456,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -466,7 +469,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -523,7 +526,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">Hank</span>
 
   
 </div>

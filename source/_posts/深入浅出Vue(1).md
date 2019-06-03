@@ -62,7 +62,7 @@ watcher(cat, 'nickname', () => {
 
 那么，我们应该怎样才能正确构造这个监听器呢？可以看到，在设想当中，监听器接收三个参数，分别是被监听的对象、被监听的属性以及回调函数，回调函数返回一个该被监听属性的值。
 
- ``` js
+``` js
 /**
  * 当计算属性的值被更新时调用
  * @param { Any } val 计算属性的值
@@ -70,7 +70,6 @@ watcher(cat, 'nickname', () => {
 function onComputedUpdate (val) {
   console.log(`我的昵称是：${val}`);
 }
-
 /**
  * 观测者
  * @param { Object } obj 被观测对象
@@ -107,7 +106,6 @@ const Dep = {
 ```
 
 依赖收集器的target就是用来存放监听器里面的onComputedUpdate()方法的。
-
 定义完依赖收集器，我们回到监听器里，看看应该在什么地方把onComputedUpdate()方法赋值给Dep.target：
 
 ``` js
