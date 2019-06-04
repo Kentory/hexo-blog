@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Mysql日期函数/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/31/Mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Hank">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/31/Mysql日期函数/" itemprop="url">Mysql日期函数</a></h1>
+                <a class="post-title-link" href="/2019/05/31/Mysql/" itemprop="url">Mysql日期函数</a></h1>
         
 
         <div class="post-meta">
@@ -353,10 +353,10 @@
 <p>mysql5.7之后版本的sql_mode默认使用：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sql-mode=<span class="string">"STRICT_ALL_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ZERO_DATE,NO_ZERO_IN_DATE,NO_AUTO_CREATE_USER"</span></span><br></pre></td></tr></table></figure></p>
 <p>其中NO_ZERO_IN_DATE, NO_ZERO_DATE两个选项禁止了日期和时间的”零”值。</p>
 <p>也可以手动调整MySQL的sql_mode变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> @@global.sql_mode=<span class="string">'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION'</span>;</span><br><span class="line"><span class="built_in">set</span> @@session.sql_mode=<span class="string">'STRICT_TRANS_TABLES,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION'</span>;</span><br></pre></td></tr></table></figure></p>
-<h3 id="Mysql获取日期时间的函数"><a href="#Mysql获取日期时间的函数" class="headerlink" title="Mysql获取日期时间的函数"></a>Mysql获取日期时间的函数</h3><h4 id="日期时间getter"><a href="#日期时间getter" class="headerlink" title="日期时间getter"></a>日期时间getter</h4><p><img src="/2019/05/31/Mysql日期函数/get_date_time.png" alt="get"></p>
-<h4 id="日期时间compare"><a href="#日期时间compare" class="headerlink" title="日期时间compare"></a>日期时间compare</h4><ol>
-<li>日期差函数：datediff<br>DATEDIFF(date1,date2)，计算两个日期相差天数（date1-date2），参数类型可以是DATE、DATETIME和TIMESTAMP。<br><img src="/2019/05/31/Mysql日期函数/datediff.png" alt="datediff"></li>
-<li>时间差函数：timediff<br>TIMEDIFF(time1,time2)，两个时间相减得到的差值（time1-time2），参数类型可以是DATE、TIME、DATETIME和TIMESTAMP,但time1和time2必须参数类型相同；两个date计算得到00:00:00。<br><img src="/2019/05/31/Mysql日期函数/timediff.png" alt="timediff"></li>
+<h3 id="Mysql日期时间函数"><a href="#Mysql日期时间函数" class="headerlink" title="Mysql日期时间函数"></a>Mysql日期时间函数</h3><h4 id="获取日期时间"><a href="#获取日期时间" class="headerlink" title="获取日期时间"></a>获取日期时间</h4><p><img src="/2019/05/31/Mysql/get_date_time.png" alt="get"></p>
+<h4 id="比较日期时间"><a href="#比较日期时间" class="headerlink" title="比较日期时间"></a>比较日期时间</h4><ol>
+<li>日期差函数：datediff<br>DATEDIFF(date1,date2)，计算两个日期相差天数（date1-date2），参数类型可以是DATE、DATETIME和TIMESTAMP。<br><img src="/2019/05/31/Mysql/datediff.png" alt="datediff"></li>
+<li>时间差函数：timediff<br>TIMEDIFF(time1,time2)，两个时间相减得到的差值（time1-time2），参数类型可以是DATE、TIME、DATETIME和TIMESTAMP,但time1和time2必须参数类型相同；两个date计算得到00:00:00。<br><img src="/2019/05/31/Mysql/timediff.png" alt="timediff"></li>
 <li>时间差函数：timestampdiff<br>TIMESTAMPDIFF(interval, datetime1,datetime2)，返回（datetime2-datetime1）的时间差，结果单位由interval参数给出，参数类型可以是DATE、DATETIME和TIMESTAMP。interval可选择：<ul>
 <li>frac_second 毫秒（MySQL5.6后支持）</li>
 <li>second 秒</li>
@@ -366,10 +366,9 @@
 <li>week 周</li>
 <li>month 月</li>
 <li>quarter 季度</li>
-<li>year 年<br><img src="/2019/05/31/Mysql日期函数/timestampdiff.png" alt="timestampdiff"></li>
+<li>year 年<br><img src="/2019/05/31/Mysql/timestampdiff.png" alt="timestampdiff"></li>
 </ul>
 </li>
-<li></li>
 </ol>
 
           
