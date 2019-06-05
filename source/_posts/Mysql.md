@@ -1,7 +1,7 @@
 ---
 title: Mysql日期函数
 date: 2019-05-31 21:30:10
-tags: SQL MYSQL
+tags: SQL
 ---
 
 ### Mysql日期和时间类型
